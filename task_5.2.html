@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 5.2</title>
+</head>
+
+<body>
+    <h1>Задание 5.2</h1>
+    <h2><b>Опрос на определение музыкальных предпочтений</b></h2>
+
+    <form id="query">
+        <h3>Какие жанры музыки вы предпочитаете?</h3>
+        <input type="checkbox" id="rock" name="genre" value="rock">
+        <label for="rock">Рок</label><br>
+        <input type="checkbox" id="pop" name="genre" value="pop">
+        <label for="pop">Поп-музыка</label><br>
+        <input type="checkbox" id="jazz" name="genre" value="jazz">
+        <label for="jazz">Джаз/Блюз/Свинг</label><br>
+        <input type="checkbox" id="alternative" name="genre" value="alternative">
+        <label for="alternative">Альтернатива</label><br>
+        <input type="checkbox" id="metal" name="genre" value="metal">
+        <label for="metal">Метал</label><br>
+        <input type="checkbox" id="classic" name="genre" value="classic">
+        <label for="classic">Классическая музыка</label><br>
+        <input type="checkbox" id="otherGenre" name="genre" value="other">
+        <label for="otherGenre">Другое</label><br>
+
+        <h3>Выберите ваши любимые музыкальные инструменты:</h3>
+        <input type="checkbox" id="violin" name="instrument" value="violin">
+        <label for="violin">Скрипка</label><br>
+        <input type="checkbox" id="guitar" name="instrument" value="guitar">
+        <label for="guitar">Гитара/Электро-гитара</label><br>
+        <input type="checkbox" id="drums" name="instrument" value="drums">
+        <label for="drums">Ударные</label><br>
+        <input type="checkbox" id="piano" name="instrument" value="piano">
+        <label for="piano">Клавишные</label><br>
+        <input type="checkbox" id="brass" name="instrument" value="brass">
+        <label for="brass">Духовые</label><br>
+        <input type="checkbox" id="otherInstrument" name="instrument" value="other">
+        <label for="otherInstrument">Другое</label><br>
+
+        <h3>Был ли у вас опыт в написании музыки?</h3>
+        <input type="checkbox" id="yes_for_fun" name="experience" value="yes_for_fun">
+        <label for="yes_for_fun">Да, но только для ознакомления</label><br>
+        <input type="checkbox" id="yes_have_songs" name="experience" value="yes_have_songs">
+        <label for="yes_have_songs">Да, являюсь автором некоторых работ</label><br>
+        <input type="checkbox" id="yes_my_job" name="experience" value="yes_my_job">
+        <label for="yes_my_job">Да, зарабатываю на это на жизнь</label><br>
+        <input type="checkbox" id="no_but_want" name="experience" value="no_but_want">
+        <label for="no_but_want">Нет, но хотел бы научиться</label><br>
+        <input type="checkbox" id="no_dont_need" name="experience" value="no_dont_need">
+        <label for="no_dont_need">Нет, не хочу пробовать</label><br>
+        <input type="checkbox" id="otherExperience" name="experience" value="other">
+        <label for="otherExperience">Другое</label><br>
+
+        <p><button type="button" onclick="submitQuery()">Отправить анкету</button></p>
+        <label id="answers_1"></label><br>
+        <label id="answers_2"></label><br>
+        <label id="answers_3"></label><br>
+
+    </form>
+    <script>
+        function submitQuery() {
+            const form = document.forms.query;
+            const selected_genres = [];
+            const selected_instruments = [];
+            const selected_experience = [];
+
+            const genre_checkboxes = form.elements.genre;
+            for (let checkbox of genre_checkboxes) {
+                if (checkbox.checked) {
+                    selected_genres.push(checkbox.value);
+                }
+            }
+            const instrument_checkboxes = form.elements.instrument;
+            for (let checkbox of instrument_checkboxes) {
+                if (checkbox.checked) {
+                    selected_instruments.push(checkbox.value);
+                }
+            }
+            const exp_checkboxes = form.elements.experience;
+            for (let checkbox of exp_checkboxes) {
+                if (checkbox.checked) {
+                    selected_experience.push(checkbox.value);
+                }
+            }
+            document.getElementById('answers_1').innerHTML = "Выбранные жанры музыки: " + selected_genres.join(", ");
+            document.getElementById('answers_2').innerHTML = "Выбранные музыкальные инструменты: " + selected_instruments.join(", ");
+            document.getElementById('answers_3').innerHTML = "Опыт работы с музыкой: " + selected_experience.join(", ");
+        }
+    </script>
+    <p>
+        <a href="task_5.1.html">Задание 5.1</a>
+    </p>
+</body>
+
+</html>

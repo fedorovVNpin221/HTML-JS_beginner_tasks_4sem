@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Федоров ЛР №3.2</title>
+    <style>
+        p.dline {
+            line-height: 0.5;
+        }
+
+        p {
+            line-height: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <p>
+            <font size="16"><b>Задание №3.2</b></font>
+        </p>
+    </h1>
+    <h2>
+        <p>
+            <font size="6"><b>Объект "Автомобиль"</b></font>
+        </p>
+    </h2>
+    <button onclick="Object_Construct_Method()">Изменить объект</button>
+    <p id='object'></p>
+    <p id='add_button'></p>
+    <p id='delete_button'></p>
+
+    <script>
+        function Object_Construct_Method() {
+
+            function constructor(brand, model, platform, body_type, engine_type, engine_capacity, actuator, chiped_or_not) {
+                this.brand = brand;
+                this.model = model;
+                this.platform = platform;
+                this.body_type = body_type;
+                this.engine_type = engine_type;
+                this.engine_capacity = engine_capacity;
+                this.actuator = actuator;
+                this.chiped_or_not = chiped_or_not;
+            }
+            const new_auto = new constructor("BMW", "E36", "E30", "седан", "V6", 150, "задний", true);
+            document.getElementById('object').textContent = Object.values(new_auto);
+
+            const add_button = document.createElement('button');
+            add_button.innerHTML = 'Добавить свойство';
+
+            add_button.onclick = function Add_Object_Property() {
+                new_value = prompt('Введите значение для нового свойства');
+                if (new_value != null) {
+                    new_auto[new_value] = new_value;
+                }
+                document.getElementById('object').textContent = Object.values(new_auto);
+            }
+            document.getElementById('add_button').appendChild(add_button);
+
+            const delete_button = document.createElement('button');
+            delete_button.innerHTML = 'Удалить свойство';
+
+            delete_button.onclick = function Delete_Object_Property() {
+                del_value = prompt('Введите значение свойства, которое хотите удалить');
+                delete new_auto[del_value];
+                document.getElementById('object').textContent = Object.values(new_auto);
+            }
+            document.getElementById('delete_button').appendChild(delete_button);
+
+        }
+    </script>
+    <p>
+        <a href="task_3.1.html">Задание 3.1</a>
+    </p>
+</body>
+
+</html>

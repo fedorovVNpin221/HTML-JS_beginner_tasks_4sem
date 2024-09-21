@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Федоров ЛР №2.1</title>
+    <style>
+        p.dline {
+            line-height: 0.5;
+        }
+
+        P {
+            line-height: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <p>
+            <font size="16"><b>Задание №2.1</b></font>
+        </p>
+    </h1>
+    <h2>
+        <p>
+            <font size="6"><b>Ваши персональные данные:</b></font>
+        </p>
+    </h2>
+    <script>
+        let user_data = [];
+        user_data.push(prompt('Введите ваше ФИО:'));
+        user_data.push(prompt('Введите название вашего ВУЗа:'));
+        user_data.push(prompt('Введите наименование вашей учебной группы:'));
+        user_data.push(prompt('Введите ваш возраст:'));
+        if (user_data.at(-1) < 18 || user_data.at(-1) > 99) {
+            alert('Отказано в регистрации');
+        }
+        for (let i = 0; i < user_data.length; i++) {
+            document.write(user_data[i]);
+            document.write('<br></br>');
+        }
+    </script>
+    <a href="task_2.2.html">Задание 2.2</a>
+</body>
+
+</html>

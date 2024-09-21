@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 6.1</title>
+</head>
+
+<body>
+    <h2>Транслитерация</h2>
+    <textarea id="inputText" placeholder="Введите текст на русском или латинице"></textarea>
+    <button id="transliterateButton">Транслит</button>
+    <button id="reverseTransliterateButton">Обратный перевод</button>
+    <p id="outputText"></p>
+
+    <script>
+        document.getElementById('transliterateButton').addEventListener('click', function () {
+            let inputText = document.getElementById('inputText').value;
+            let outputText = transliterate(inputText);
+            document.getElementById('outputText').textContent = outputText;
+        });
+
+        document.getElementById('reverseTransliterateButton').addEventListener('click', function () {
+            let inputText = document.getElementById('inputText').value;
+            let outputText = reverseTransliterate(inputText);
+            document.getElementById('outputText').textContent = outputText;
+        });
+
+        function transliterate(text) {
+            return text.replace(/а/g, 'a')
+                .replace(/б/g, 'b')
+                .replace(/в/g, 'v')
+                .replace(/г/g, 'g')
+                .replace(/с/g, 's')
+                .replace(/д/g, 'd')
+                .replace(/ж/g, 'zh')
+                .replace(/з/g, 'z')
+                .replace(/й/g, 'iy')
+                .replace(/к/g, 'k')
+                .replace(/л/g, 'l')
+                .replace(/м/g, 'm')
+                .replace(/н/g, 'n')
+                .replace(/п/g, 'p')
+                .replace(/р/g, 'r')
+                .replace(/т/g, 't')
+                .replace(/ф/g, 'f')
+                .replace(/x/g, 'h')
+                .replace(/ц/g, 'c')
+                .replace(/ч/g, 'ch')
+                .replace(/ш/g, 'sh')
+                .replace(/щ/g, "sh'")
+                .replace(/ё/g, "io")
+                .replace(/и/g, 'i')
+                .replace(/у/g, 'u')
+                .replace(/ы/g, 'i')
+                .replace(/э/g, 'e')
+                .replace(/ю/g, 'iu')
+                .replace(/я/g, 'ia')
+                .replace(/ь/g, '`')
+        }
+
+        function reverseTransliterate(text) {
+            return text.replace(/a/g, 'а')
+                .replace(/b/g, 'б')
+                .replace(/v/g, 'в')
+                .replace(/g/g, 'г')
+                .replace(/s/g, 'с')
+                .replace(/d/g, 'д')
+                .replace(/zh/g, 'ж')
+                .replace(/z/g, 'з')
+                .replace(/iy/g, 'й')
+                .replace(/k/g, 'к')
+                .replace(/l/g, 'л')
+                .replace(/m/g, 'м')
+                .replace(/n/g, 'н')
+                .replace(/p/g, 'п')
+                .replace(/r/g, 'р')
+                .replace(/t/g, 'т')
+                .replace(/f/g, 'ф')
+                .replace(/h/g, 'х')
+                .replace(/c/g, 'ц')
+                .replace(/ch/g, 'ч')
+                .replace(/sh/g, 'ш')
+                .replace(/sh'/g, "щ")
+                .replace(/io/g, "ё")
+                .replace(/i/g, 'и')
+                .replace(/u/g, 'y')
+                .replace(/i/g, 'и')
+                .replace(/e/g, 'э')
+                .replace(/iu/g, 'ю')
+                .replace(/ia/g, 'я')
+                .replace(/`/g, 'ь')
+        }
+    </script>
+    <a href="task_6.2.html">Задание 6.2</a>
+</body>
+
+</html>

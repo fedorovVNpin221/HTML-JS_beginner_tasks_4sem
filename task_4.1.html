@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 4.1</title>
+    <script>
+        function OpenNewWindow() {
+            var newWindow = window.open("", "", "width=400, height=400, top=100, left=100, resizable=yes, scrollbars=yes");
+            newWindow.document.body.style.backgroundColor = "Yellow";
+            newWindow.document.write("<h1>Еще одна страница</h1>");
+            newWindow.document.write("<a href='#' onclick='window.opener.location.href=\"https://www.example.com\"'>Новая страница в главном окне</a><br>");
+            newWindow.document.write("<a href='#' onclick='window.location.href=\"task_4.1.1.html\"'>Новая страница в текущем окне</a>");
+        }  
+    </script>
+</head>
+
+<body>
+    <h1>
+        <p>
+            <font size="16"><b>Задание №4.1</b></font>
+        </p>
+    </h1>
+    <h2>
+        <p>
+            <font size="6"><b>Главная страница</b></font>
+        </p>
+    </h2>
+    <button onclick="OpenNewWindow()">Новая страница</button>
+    <p>
+        <a href="task_4.2.html">Задание 4.2</a>
+    </p>
+</body>
+
+</html>

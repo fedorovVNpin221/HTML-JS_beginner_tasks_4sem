@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Федоров ЛР №1.2</title>
+    <style>
+        p.dline {
+            line-height: 0.5;
+        }
+
+        P {
+            line-height: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <p>
+            <font size="16"><b>Задание №1.2</b></font>
+        </p>
+    </h1>
+
+    <script>
+        let date = prompt('Введите дату в формате дд.мм.гг');
+        if (date.at(2) != '.' && date.at(5) != '.') {
+            alert(date + ' --> Дата введена некорректно');
+        }
+        switch (date.at(3)) {
+            case '0':
+                switch (date.at(4)) {
+                    case '1':
+                    case '2':
+                        alert(date + ' --> зима');
+                        break;
+                    case '3':
+                    case '4':
+                    case '5':
+                        alert(date + ' --> весна');
+                        break;
+                    case '6':
+                    case '7':
+                    case '8':
+                        alert(date + ' --> лето');
+                        break;
+                    case '9':
+                        alert(date + ' --> осень');
+                        break;
+                }
+                break;
+            case '1':
+                switch (date.at(4)) {
+                    case '0':
+                    case '1':
+                        alert(date + ' --> осень');
+                        break;
+                    case '2':
+
+                }
+                break;
+            case '3':
+                alert(date + ' --> Дата введена некорректно');
+                break;
+        }
+    </script>
+    <p>
+        <a href="task 1.1.html">Задание 1.1</a>
+    </p>
+    <p>
+        <a href="лр 2/task_2.1">Задание 2.1</a>
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 5.1</title>
+</head>
+
+<body>
+    <h1>Задание 5.1</h1>
+    <h2><b>Решение квадратного уравнения ax^2+bx+c=0</b></h2>
+    <form id="quadraticForm">
+        <label for="a">Введите значение коэффициента a:</label>
+        <input type="number" id="a" name="a" required><br>
+        <label for="b">Введите значение коэффициента b:</label>
+        <input type="number" id="b" name="b" required><br>
+        <label for="c">Введите значение коэффициента c:</label>
+        <input type="number" id="c" name="c" required><br>
+        <p>
+            <center><button type="button" onclick="QuadEquationSolver()">Показать решение</button></center>
+        </p>
+        <p>
+            <center><button type="button" onclick="resetForm()">Очистить</button></center>
+        </p>
+    </form>
+    <form id="resultsForm">
+        <label>Дискриминант(D) =</label>
+        <output type="number" id="discriminant" required></output><br>
+        <label>Для уравнения: </label>
+        <output type="text" id="equation" required></output><br>
+        <label>x1 = </label>
+        <output type="number" id="x1" required></output><br>
+        <label>x2 = </label>
+        <output type="number" id="x2" required></output><br>
+        <label>Наличие корней: </label>
+        <output type="text" id="no_roots" required></output><br>
+    </form>
+    <script>
+        function QuadEquationSolver() {
+            const form = document.forms.quadraticForm;
+            const form1 = document.forms.results;
+            const a = parseFloat(form.a.value);
+            const b = parseFloat(form.b.value);
+            const c = parseFloat(form.c.value);
+
+            const discriminant = b * b - 4 * a * c;
+            document.getElementById('discriminant').innerHTML = discriminant;
+            document.getElementById('equation').innerHTML = a + 'x^2 + ' + b + 'x + ' + c + ' = 0';
+
+            if (a != 0 && b != 0) {
+                if (discriminant < 0) {
+                    document.getElementById('no_roots').innerHTML = 'Уравнение не имеет действительных корней';
+                    document.getElementById('x1').innerHTML = '...';
+                    document.getElementById('x2').innerHTML = '...';
+                } else if (discriminant === 0) {
+                    const x = -b / (2 * a);
+                    document.getElementById('no_roots').innerHTML = 'Уравнение имеет один корень';
+                    document.getElementById('x1').innerHTML = x;
+                    document.getElementById('x2').innerHTML = '...';
+                } else if (discriminant > 0) {
+                    const x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                    const x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                    document.getElementById('no_roots').innerHTML = 'Уравнение имеет два действительных корня';
+                    document.getElementById('x1').innerHTML = x1;
+                    document.getElementById('x2').innerHTML = x2;
+                }
+            } else {
+                document.getElementById('no_roots').innerHTML = 'Уравнение не является квадратным';
+                document.getElementById('x1').innerHTML = '...';
+                document.getElementById('x2').innerHTML = '...';
+                document.getElementById('discriminant').innerHTML = '...';
+            }
+        }
+        function resetForm() {
+            document.getElementById("quadraticForm").reset();
+            document.getElementById("resultsForm").reset();
+        }
+    </script>
+    <p>
+        <a href="task_5.2.html">Задание 5.2</a>
+    </p>
+</body>
+
+</html>

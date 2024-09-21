@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Федоров ЛР №3.1</title>
+    <style>
+        p.dline {
+            line-height: 0.5;
+        }
+
+        P {
+            line-height: 0.9em;
+        }
+    </style>
+    <script>
+        function countNegativesAndMaxConsecutiveNegatives(arr) {
+            let negativeCount = 0;
+            let maxConsecutiveNegatives = 0;
+            let currentConsecutiveNegatives = 0;
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < 0) {
+                    negativeCount++;
+                    currentConsecutiveNegatives++;
+                    maxConsecutiveNegatives = Math.max(maxConsecutiveNegatives, currentConsecutiveNegatives);
+                } else {
+                    currentConsecutiveNegatives = 0;
+                }
+            }
+
+            return { negativeCount, maxConsecutiveNegatives };
+        }
+    </script>
+</head>
+
+<body>
+    <h1>
+        <p>
+            <font size="16"><b>Задание №3.1</b></font>
+        </p>
+    </h1>
+    <h2>
+        <p>
+            <font size="6"><b>Массивы чисел:</b></font>
+        </p>
+    </h2>
+    <div>
+        <h2>Последовательность 1:</h2>
+        <p>Введите числа через запятую:</p>
+        <input type="text" id="input1" placeholder="Пример: -1, 2, -3, -4">
+        <button onclick="calculateSequence1()">Посчитать</button>
+        <p>Результат:</p>
+        <p id="result1">-</p>
+        <p id="result1_1">-</p>
+    </div>
+
+    <div>
+        <h2>Последовательность 2:</h2>
+        <p>Введите числа через запятую:</p>
+        <input type="text" id="input2" placeholder="Пример: -5, -6, 7, -8">
+        <button onclick="calculateSequence2()">Посчитать</button>
+        <p>Результат:</p>
+        <p id="result2">-</p>
+        <p id="result2_1">-</p>
+    </div>
+
+    <script>
+        function calculateSequence1() {
+            const input = document.getElementById('input1').value;
+            const numbers = input.split(',').map(num => parseInt(num.trim(), 10));
+            const { negativeCount, maxConsecutiveNegatives } = countNegativesAndMaxConsecutiveNegatives(numbers);
+            document.getElementById('result1').textContent = "Количество отрицательных чисел: " + negativeCount;
+            document.getElementById('result1_1').textContent = "Максимальное число подряд следующих отрицательных чисел: " + maxConsecutiveNegatives;
+        }
+
+        function calculateSequence2() {
+            const input = document.getElementById('input2').value;
+            const numbers = input.split(',').map(num => parseInt(num.trim(), 10));
+            const { negativeCount, maxConsecutiveNegatives } = countNegativesAndMaxConsecutiveNegatives(numbers);
+            document.getElementById('result2').textContent = "Количество отрицательных чисел: " + negativeCount;
+            document.getElementById('result2_1').textContent = "Максимальное число подряд следующих отрицательных чисел: " + maxConsecutiveNegatives;
+        }
+    </script>
+    <p>
+        <a href="task_3.2.html">Задание 3.2</a>
+    </p>
+</body>
+
+</html>

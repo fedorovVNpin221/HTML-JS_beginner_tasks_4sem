@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Федоров ЛР №1.1</title>
+    <style>
+        p.dline {
+            line-height: 0.5;
+        }
+
+        P {
+            line-height: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <p>
+            <font size="16"><b>Задание №1.1</b></font>
+        </p>
+    </h1>
+
+    <p class="dline">
+        <font size="6">
+            <br />Пацаны подсели на шпидульку все<br>
+            <br />Из фитюльки делают грамм<br>
+            <br />А из общей массы тонну<br>
+            <br />Я набираю веса год от года<br>
+        </font>
+    </p>
+
+    <button onclick="show_greeting_message()" type="button">Показать диалог</button>
+    <script>
+        function show_greeting_message() {
+            alert('Добро пожаловать на мою страницу!');
+        }
+        window.onload = function () {
+            window.addEventListener('focus', function () {
+                alert('Спасибо за посещение моей страницы!');
+            });
+        };
+    </script>
+
+    <p class="dline">
+        <font size="6">
+            <br />Выпиваю заваренный в стакане да хун пао залпом<br>
+            <br />Это мой завтрак<br>
+            <br />Жизнь — ралли, по бездорожью, без карты,<br>
+            <br />Не остаться бы лежать на асфальте<br>
+        </font>
+    </p>
+    <a href="task 1.2.html">Задание 1.2</a>
+
+</body>
+
+</html>

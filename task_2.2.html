@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Федоров ЛР №2.2</title>
+    <style>
+        p.dline {
+            line-height: 0.5;
+        }
+
+        P {
+            line-height: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <p>
+            <font size="16"><b>Задание №2.1</b></font>
+        </p>
+    </h1>
+    <h2>
+        <p>
+            <font size="6"><b>Ваш рюкзак:</b></font>
+        </p>
+    </h2>
+    <script>
+        const items = [
+            { name: 'карандаш', weight: 20 },
+            { name: 'зеркальце', weight: 100 },
+            { name: 'зонт', weight: 500 },
+            { name: 'рубашка', weight: 300 },
+            { name: 'молоток', weight: 600 },
+            { name: 'пила', weight: 400 },
+            { name: 'удочка', weight: 1200 }
+        ];
+        let N = prompt('Введите объём вашего рюкзака');
+        items.sort((a, b) => b.weight - a.weight);
+
+        let current_weight = 0;
+        let items_in_backpack = [];
+
+        for (let item of items) {
+            if (current_weight + item.weight <= N) {
+                items_in_backpack.push(item.name);
+                current_weight += item.weight;
+            }
+        }
+        document.write('Объём рюкзака: ' + N + '<br></br>');
+        document.write('Предметы в рюкзаке: ' + items_in_backpack);
+    </script>
+    <p>
+        <a href="task_2.1.html">Задание 2.1</a>
+    </p>
+    <p>
+        <a href="лр 3/task_3.1">Задание 3.1</a>
+    </p>
+</body>
+
+</html>
